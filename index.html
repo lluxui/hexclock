@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8" />
+  <title>HexClock</title>
+
+  <style>
+
+    html body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #hex {
+      color: white;
+      font-family: 'Lato', Helvetiva, Arial, sans-serif;
+      text-align: center;
+      font-size: 4.5em;
+      display: block;
+      min-width: 200px;
+      font-weight: 100;
+    }
+
+    .middle {
+        margin: auto;
+        position: absolute;
+        top: 50%; left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+    }
+
+  </style>
+
+  </head>
+
+  <body>
+
+  <div class="middle">
+    <span id="hex"></span>
+  </div>
+
+  <script type="text/javascript">
+    
+    var b = document.getElementsByTagName('body')[0];
+
+    setInterval(function () { 
+      var d = new Date().toTimeString();
+      var c = '#' + d.substr(d.search(/\d{2}:\d{2}:\d{2}/), 8).replace(/:/g,'');
+      b.style.backgroundColor = c;
+      document.getElementById('hex').innerHTML = c;
+    }, 1000);
+
+  </script>
+
+  </body>
+</html>
